@@ -1,0 +1,7 @@
+services:
+  lfi_contact_support.data:
+    class: Drupal\lfi_contact_support\Service\ContactSupportService
+    arguments: ['@entity_type.manager', '@address.country_repository', '@lfi_zendesk.zendesk', '@http_client', '@file_system', '@string_translation', '@lfi_device_check.manager']
+  lfi_contact_support.validate:
+    class: Drupal\lfi_contact_support\Service\ContactSupportValidate
+    arguments: ['@email.validator', '@entity_type.manager', '@lfi_device_check.manager', '@database', '@lfi_contact_support.data']

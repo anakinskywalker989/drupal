@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies: {  }
+id: us_ca
+label: US/CA
+cc_team: null
+countries:
+  AS: AS
+  VG: VG
+  CA: CA
+  GU: GU
+  JM: JM
+  MV: MV
+  MP: MP
+  PR: PR
+  VI: VI
+  US: US
+email: customercare-usa@foreo.com

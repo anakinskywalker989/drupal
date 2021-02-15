@@ -1,0 +1,64 @@
+<?php
+
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Fix wrong label in allowed settings on matching subject.
+ */
+function lfi_contact_support_update_8202() {
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+  $fields = $entity_definition_update_manager->getFieldStorageDefinition('matching_subject', 'contact_questions');
+  $fields->setSettings([
+    'allowed_values' => [
+      'activate_deactivate_account' => 'Activate/Deactivate account',
+      'password_issue' => 'Password issue',
+      'cancel_order' => 'Cancel order',
+      'order__return_order' => 'Return order',
+      'refund' => 'Refund',
+      'change_order' => 'Change order',
+      'website_ordering_issue' => 'Website ordering issue',
+      'tracking_number' => 'Tracking number',
+      'lost_package' => 'Lost package',
+      'wrong_product_packed' => 'Wrong product packed',
+      'missing_spare_part' => 'Missing spare part',
+      'damaged_package' => 'Damaged Package',
+      'product_infos' => 'Product Infos',
+      'order_verification' => 'Order Verification',
+      'shipping_information' => 'Shipping information',
+      'extra_fee' => 'Extra fee',
+      'product_authenticity_check' => 'Authenticity check',
+      'warranty_registration' => 'Registration',
+      'warranty_info' => 'Warranty Info',
+    ],
+  ]);
+  $entity_definition_update_manager->updateFieldStorageDefinition($fields);
+}
+
+/**
+ * Implements hook_update_N().
+ * Add weight field.
+ */
+function lfi_contact_support_update_8205() {
+  $field_storage_definition = \Drupal\Core\Field\BaseFieldDefinition::create('integer')
+    ->setLabel(t('Weight'))
+    ->setDescription(t('The weight of this Subject in relation to others.'))
+    ->setDefaultValue(0)
+    ->setDisplayOptions('view', [
+      'label' => 'above',
+      'type' => 'integer',
+      'weight' => 100,
+    ])
+    ->setCardinality(1)
+    ->setDisplayOptions('form', [
+      'type' => 'integer',
+      'weight' => 100,
+    ])
+    ->setTranslatable(FALSE)
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayConfigurable('view', TRUE)
+    ->setRequired(TRUE);
+
+
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('weight', 'contact_questions', 'lfi_contact_support', $field_storage_definition);
+}

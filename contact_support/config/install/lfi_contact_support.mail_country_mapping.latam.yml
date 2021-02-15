@@ -1,0 +1,45 @@
+langcode: en
+status: true
+dependencies: {  }
+id: latam
+label: LATAM
+cc_team: null
+countries:
+  AR: AR
+  BS: BS
+  BB: BB
+  BZ: BZ
+  BM: BM
+  BO: BO
+  BR: BR
+  KY: KY
+  CL: CL
+  CO: CO
+  CR: CR
+  CU: CU
+  DM: DM
+  DO: DO
+  EC: EC
+  SV: SV
+  GQ: GQ
+  GD: GD
+  GP: GP
+  GY: GY
+  HT: HT
+  HN: HN
+  MX: MX
+  NI: NI
+  PA: PA
+  PY: PY
+  PE: PE
+  PT: PT
+  KN: KN
+  LC: LC
+  MF: MF
+  VC: VC
+  ES: ES
+  SR: SR
+  TT: TT
+  UY: UY
+  VE: VE
+email: customercare-latam@foreo.com

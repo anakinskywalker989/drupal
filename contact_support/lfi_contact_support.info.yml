@@ -1,0 +1,5 @@
+name: 'lfi_contact_support'
+type: module
+description: 'Custom module for contact support form'
+core: 8.x
+package: 'LFI'

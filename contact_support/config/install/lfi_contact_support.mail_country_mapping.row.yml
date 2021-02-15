@@ -1,0 +1,62 @@
+langcode: en
+status: true
+dependencies: {  }
+id: row
+label: ROW
+cc_team: null
+countries:
+  AF: AF
+  AU: AU
+  BD: BD
+  BT: BT
+  BN: BN
+  KH: KH
+  CN: CN
+  CK: CK
+  FJ: FJ
+  PF: PF
+  GP: GP
+  GT: GT
+  HK: HK
+  IN: IN
+  ID: ID
+  IR: IR
+  IQ: IQ
+  JP: JP
+  KZ: KZ
+  KG: KG
+  LA: LA
+  MO: MO
+  MY: MY
+  MH: MH
+  FM: FM
+  MN: MN
+  MM: MM
+  NR: NR
+  NP: NP
+  NC: NC
+  NZ: NZ
+  NU: NU
+  MP: MP
+  KP: KP
+  PK: PK
+  PW: PW
+  PG: PG
+  PH: PH
+  WS: WS
+  SG: SG
+  SB: SB
+  KR: KR
+  LK: LK
+  TW: TW
+  TJ: TJ
+  TH: TH
+  TL: TL
+  TO: TO
+  TM: TM
+  TV: TV
+  UZ: UZ
+  VU: VU
+  VN: VN
+  WF: WF
+email: customercare-row@foreo.com

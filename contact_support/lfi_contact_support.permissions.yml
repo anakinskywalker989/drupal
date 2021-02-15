@@ -1,0 +1,19 @@
+add contact questions entities:
+  title: 'Create new Contact questions entities'
+
+administer contact questions entities:
+  title: 'Administer Contact questions entities'
+  description: 'Allow to access the administration form to configure Contact questions entities.'
+  restrict access: true
+
+delete contact questions entities:
+  title: 'Delete Contact questions entities'
+
+edit contact questions entities:
+  title: 'Edit Contact questions entities'
+
+view published contact questions entities:
+  title: 'View published Contact questions entities'
+
+view unpublished contact questions entities:
+  title: 'View unpublished Contact questions entities'

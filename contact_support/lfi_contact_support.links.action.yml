@@ -1,0 +1,10 @@
+entity.contact_questions.add_form:
+  route_name: entity.contact_questions.add_form
+  title: 'Add Contact questions'
+  appears_on:
+    - entity.contact_questions.collection
+entity.mail_country_mapping.add_form:
+  route_name: entity.mail_country_mapping.add_form
+  title: 'Add Mail country mapping'
+  appears_on:
+    - entity.mail_country_mapping.collection

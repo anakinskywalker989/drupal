@@ -1,0 +1,21 @@
+# Contact questions routing definition
+contact_questions.settings_tab:
+  route_name: contact_questions.settings
+  title: 'Settings'
+  base_route: contact_questions.settings
+
+entity.contact_questions.canonical:
+  route_name: entity.contact_questions.canonical
+  base_route: entity.contact_questions.canonical
+  title: 'View'
+
+entity.contact_questions.edit_form:
+  route_name: entity.contact_questions.edit_form
+  base_route: entity.contact_questions.canonical
+  title: 'Edit'
+
+entity.contact_questions.delete_form:
+  route_name:  entity.contact_questions.delete_form
+  base_route:  entity.contact_questions.canonical
+  title: Delete
+  weight: 10

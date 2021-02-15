@@ -1,0 +1,13 @@
+{
+    "name": "lfi/lfi_contact_support",
+    "type": "drupal-custom-module",
+    "description": "Custom module for contact support form",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/lfi_contact_support",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/lfi_contact_support",
+        "source": "http://cgit.drupalcode.org/lfi_contact_support"
+    }
+}

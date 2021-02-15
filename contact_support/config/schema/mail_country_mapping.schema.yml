@@ -1,0 +1,21 @@
+lfi_contact_support.mail_country_mapping.*:
+  type: config_entity
+  label: 'Mail country mapping config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string
+    cc_team:
+      type: string
+      label: 'CC team'
+    countries:
+      type: array
+      label: 'Select countries'
+    email:
+      type: string
+      label: 'CC team email'

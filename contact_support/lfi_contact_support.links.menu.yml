@@ -1,0 +1,22 @@
+
+# Contact questions menu items definition
+entity.contact_questions.collection:
+  title: 'Contact questions list'
+  route_name: entity.contact_questions.collection
+  description: 'List Contact questions entities'
+  parent: lfi_utility.lfi_entity_system
+  weight: 100
+
+contact_questions.admin.structure.settings:
+  title: 'Contact questions settings'
+  description: 'Configure Contact questions entities'
+  route_name: contact_questions.settings
+  parent: system.admin_structure
+
+# Mail country mapping menu items definition
+entity.mail_country_mapping.collection:
+  title: 'Mail country mapping'
+  route_name: entity.mail_country_mapping.collection
+  description: 'List Mail country mapping (bundles)'
+  parent: lfi_utility.lfi_entity_system
+  weight: 99

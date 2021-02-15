@@ -1,0 +1,10 @@
+lfi_contact_support.notify:
+  path: '/support/contact-support/{lang}'
+  defaults:
+    _controller: 'Drupal\lfi_contact_support\Controller\ContactFormApi:initRequest'
+    _title: ''
+    lang: 'en'
+  methods: [GET, POST]
+  requirements:
+    _access: 'TRUE'
+    _format: 'json'
