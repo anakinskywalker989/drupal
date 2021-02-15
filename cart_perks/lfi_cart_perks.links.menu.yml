@@ -1,0 +1,14 @@
+
+# Cart perks entity menu items definition
+entity.cart_perks_entity.collection:
+  title: 'Cart perks entity list'
+  route_name: entity.cart_perks_entity.collection
+  description: 'List Cart perks entity entities'
+  parent: lfi_utility.lfi_entity_system
+  weight: 100
+
+cart_perks_entity.admin.structure.settings:
+  title: 'Cart perks entity settings'
+  description: 'Configure Cart perks entity entities'
+  route_name: cart_perks_entity.settings
+  parent: system.admin_structure

@@ -1,0 +1,157 @@
+<?php
+/**
+ * @file
+ * Install file for lfi_cart_perks module.
+ */
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Entity\EntityTypeManager;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Add new base fields.
+ *
+ * Implements hook_update_N().
+ */
+function lfi_cart_perks_update_8101() {
+  $fields['desktop_image'] = BaseFieldDefinition::create('image')
+    ->setLabel(t('Desktop Image'))
+    ->setRevisionable(FALSE)
+    ->setSettings([
+      'uri_scheme' => 'public',
+      'target_type' => 'file',
+      'display_field' => FALSE,
+      'display_default' => FALSE,
+      'text_processing' => 1,
+    ])
+    ->setCardinality(1)
+    ->setTranslatable(FALSE)
+    ->setDisplayOptions('view', [
+      'label' => 'hidden',
+      'type' => 'image_url',
+      'weight' => 2,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'image_image',
+      'weight' => 2,
+    ])
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayConfigurable('view', TRUE)
+    ->setRequired(FALSE);
+
+  $fields['mobile_image'] = BaseFieldDefinition::create('image')
+    ->setLabel(t('Mobile Image'))
+    ->setRevisionable(FALSE)
+    ->setSettings([
+      'uri_scheme' => 'public',
+      'target_type' => 'file',
+      'display_field' => FALSE,
+      'display_default' => FALSE,
+      'text_processing' => 1,
+    ])
+    ->setCardinality(1)
+    ->setTranslatable(FALSE)
+    ->setDisplayOptions('view', [
+      'label' => 'hidden',
+      'type' => 'image_url',
+      'weight' => 2,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'image_image',
+      'weight' => 2,
+    ])
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayConfigurable('view', TRUE)
+    ->setRequired(FALSE);
+
+  foreach ($fields as $name => $field) {
+    \Drupal::entityDefinitionUpdateManager()
+      ->installFieldStorageDefinition($name, 'cart_perks_entity', 'lfi_cart_perks', $field);
+  }
+}
+
+/**
+ * Adds product bundle variation entity reference.
+ *
+ * Implements hook_update_N().
+ */
+function lfi_cart_perks_update_8104() {
+  \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
+
+  // Create a new field definition.
+  $on_product_bundle = BaseFieldDefinition::create('entity_reference')
+    ->setLabel(t('Select product bundle variation'))
+    ->setRevisionable(TRUE)
+    ->setSetting('target_type', 'commerce_bundle_variation')
+    ->setSetting('handler', 'default')
+    ->setTranslatable(FALSE)
+    ->setDisplayOptions('view', [
+     'label' => 'above',
+     'type' => 'string_textfield',
+     'weight' => 0,
+    ])
+    ->setDisplayOptions('form', [
+      'type' => 'select2_entity_reference',
+         'autocomplete' => TRUE,
+         'settings' => [
+           'autocomplete' => FALSE,
+         ],
+         'weight' => 20,
+    ])
+    ->setDisplayConfigurable('form', TRUE)
+    ->setDisplayConfigurable('view', TRUE);
+
+  // Install the new definition.
+  \Drupal::entityDefinitionUpdateManager()->installFieldStorageDefinition('on_product_bundle', 'cart_perks_entity', 'lfi_cart_perks', $on_product_bundle);
+
+  \Drupal::entityDefinitionUpdateManager()->applyUpdates();
+}
+
+/**
+ * Update cart perks eck.
+ *
+ * Implements hook_update_N().
+ */
+function lfi_cart_perks_update_8105() {
+   // We only have 2 ecks with data, remove it.
+  \Drupal::database()->update('cart_perks_entity_field_data')
+    ->fields([
+      'on_product' => NULL,
+    ])
+    ->execute();
+
+  \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
+  $entity_definition_update_manager = \Drupal::entityDefinitionUpdateManager();
+
+  // Update cart perk bundle variation ref. field.
+  $field = $entity_definition_update_manager->getFieldStorageDefinition('on_product_bundle', 'cart_perks_entity');
+  $field->setSetting('handler', 'default:commerce_bundle_variation')
+  ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+  ->setDisplayOptions('form', [
+    'type' => 'lfi_select2_entity_reference',
+       'autocomplete' => FALSE,
+       'settings' => [
+         'autocomplete' => FALSE,
+       ],
+       'weight' => 20,
+  ]);
+  $entity_definition_update_manager->updateFieldStorageDefinition($field);
+
+  // Update cart perk product variation ref. field.
+  $field_product_variation = $entity_definition_update_manager->getFieldStorageDefinition('on_product', 'cart_perks_entity');
+  $field_product_variation->setLabel(t('Select product variation'))
+  ->setSetting('handler', 'default:commerce_product_variation')
+  ->setCardinality(BaseFieldDefinition::CARDINALITY_UNLIMITED)
+  ->setSetting('target_type', 'commerce_product_variation')
+  ->setDisplayOptions('form', [
+    'type' => 'lfi_select2_entity_reference',
+       'autocomplete' => FALSE,
+       'settings' => [
+         'autocomplete' => FALSE,
+       ],
+       'weight' => 20,
+  ]);
+  $entity_definition_update_manager->updateFieldStorageDefinition($field_product_variation);
+
+}

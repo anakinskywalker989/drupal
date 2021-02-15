@@ -1,0 +1,22 @@
+# Cart perks entity routing definition
+cart_perks_entity.settings_tab:
+  route_name: cart_perks_entity.settings
+  title: 'Settings'
+  base_route: cart_perks_entity.settings
+
+entity.cart_perks_entity.canonical:
+  route_name: entity.cart_perks_entity.canonical
+  base_route: entity.cart_perks_entity.canonical
+  title: 'View'
+
+entity.cart_perks_entity.edit_form:
+  route_name: entity.cart_perks_entity.edit_form
+  base_route: entity.cart_perks_entity.canonical
+  title: 'Edit'
+
+entity.cart_perks_entity.delete_form:
+  route_name:  entity.cart_perks_entity.delete_form
+  base_route:  entity.cart_perks_entity.canonical
+  title: Delete
+  weight: 10
+

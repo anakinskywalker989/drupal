@@ -1,0 +1,19 @@
+add cart perks entity entities:
+  title: 'Create new Cart perks entity entities'
+
+administer cart perks entity entities:
+  title: 'Administer Cart perks entity entities'
+  description: 'Allow to access the administration form to configure Cart perks entity entities.'
+  restrict access: true
+
+delete cart perks entity entities:
+  title: 'Delete Cart perks entity entities'
+
+edit cart perks entity entities:
+  title: 'Edit Cart perks entity entities'
+
+view published cart perks entity entities:
+  title: 'View published Cart perks entity entities'
+
+view unpublished cart perks entity entities:
+  title: 'View unpublished Cart perks entity entities'

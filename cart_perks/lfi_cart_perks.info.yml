@@ -1,0 +1,8 @@
+name: 'lfi_cart_perks'
+type: module
+description: 'Cart perks'
+core: 8.x
+package: 'LFI'
+
+dependencies:
+  - lfi_access

@@ -1,0 +1,39 @@
+{#
+/**
+ * @file cart-text-blocks.html.twig
+ * Default theme implementation to present text blocks on cart.
+ *
+ * Available variables:
+ * - blocks: Array of data.
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_cart_text_blocks()
+ *
+ * @ingroup themeable
+ */
+#}
+<section>
+
+  <div class="shipping">
+    {{ blocks.shipping.title }}
+    {{ blocks.shipping.description }}
+    {{ blocks.shipping.desktop_image }}
+    {{ blocks.shipping.mobile_image }}
+
+  </div>
+
+  <div class="warranty">
+    {{ blocks.warranty.title }}
+    {{ blocks.warranty.description }}
+    {{ blocks.warranty.desktop_image }}
+    {{ blocks.warranty.mobile_image }}
+  </div>
+
+  <div class="payment">
+    {{ blocks.payment.title }}
+    {{ blocks.payment.description }}
+    {{ blocks.payment.desktop_image }}
+    {{ blocks.payment.mobile_image }}
+  </div>
+
+</section>

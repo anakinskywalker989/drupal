@@ -1,0 +1,14 @@
+{
+  "name": "lfi/lfi_cart_perks",
+  "type": "drupal-custom-module",
+  "description": "Cart stuff",
+  "keywords": ["Drupal", "Commerce"],
+  "license": "GPL-2.0+",
+  "homepage": "http://gitlab.foreo.com/drupal/lfi_legacy",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://gitlab.foreo.com/drupal/lfi_legacy",
+    "source": "https://gitlab.foreo.com/drupal/lfi_legacy"
+  },
+  "require": { }
+}

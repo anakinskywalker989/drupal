@@ -1,0 +1,11 @@
+services:
+  lfi_cart_perks.migrate.commands:
+    class: \Drupal\lfi_cart_perks\Commands\Migrate
+    arguments: ['@language_manager', '@config.factory']
+    tags:
+      -  { name: drush.command }
+  lfi_cart_perks.migrate_variations.commands:
+    class: \Drupal\lfi_cart_perks\Commands\MigrateToVariations
+    arguments: ['@database']
+    tags:
+      - { name: drush.command }

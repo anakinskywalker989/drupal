@@ -1,0 +1,5 @@
+entity.cart_perks_entity.add_form:
+  route_name: entity.cart_perks_entity.add_form
+  title: 'Add Cart perks entity'
+  appears_on:
+    - entity.cart_perks_entity.collection

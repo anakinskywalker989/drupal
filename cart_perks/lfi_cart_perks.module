@@ -1,0 +1,41 @@
+<?php
+
+/**
+ * @file
+ * Contains lfi_cart_perks.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function lfi_cart_perks_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the lfi_cart_perks module.
+    case 'help.page.lfi_cart_perks':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Cart perks') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function lfi_cart_perks_theme() {
+  $build=[
+    'cart_text_blocks' => [
+      'variables' => [
+        'blocks'=>[],
+        'attributes' => [],
+      ],
+      'template' => 'cart-text-blocks'
+    ]
+  ];
+
+  return $build;
+}
